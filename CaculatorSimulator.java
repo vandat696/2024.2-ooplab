@@ -23,12 +23,20 @@ public class CaculatorSimulator {
         Sum = num1 + num2;
         Difference = num1 - num2;
         Product = num1 * num2;
-        Quotient = num1/num2;
+        if (num2 != 0) {
+                Quotient = num1 / num2;
+            } else {
+                Quotient = Double.NaN;
+            }
 
         strNotification += "\nSum = " + Sum  + 
                            "\nDifference = " + Difference +
-                           "\nProduct = " + Product +
-                           "\nQuotient = " + Quotient;
+                           "\nProduct = " + Product;
+        if (!Double.isNaN(Quotient)) {
+                strNotification += "\nQuotient = " + Quotient;
+        } else {
+                strNotification += "\nQuotient = Undefined (Cannot divide by zero)";
+        }
         JOptionPane.showMessageDialog(null,strNotification,
                 "Result ", JOptionPane.INFORMATION_MESSAGE);
                 System.exit(0);
